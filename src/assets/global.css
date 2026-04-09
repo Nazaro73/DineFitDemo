@@ -1,0 +1,381 @@
+/* ===== DineFit v2 Design System — Light Bold UI ===== */
+:root {
+  /* Typography */
+  --font-display: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Primary — vibrant orange-red */
+  --primary: #ff4000;
+  --primary-light: #ff6633;
+  --primary-dark: #cc3300;
+  --primary-glow: rgba(255, 64, 0, 0.10);
+  --primary-glow-strong: rgba(255, 64, 0, 0.20);
+  --primary-gradient: linear-gradient(135deg, #ff4000 0%, #ff6633 100%);
+
+  /* Legacy aliases for components using --green */
+  --green: #ff4000;
+  --green-light: #ff6633;
+  --green-dark: #cc3300;
+  --green-glow: rgba(255, 64, 0, 0.10);
+  --green-glow-strong: rgba(255, 64, 0, 0.20);
+  --green-gradient: linear-gradient(135deg, #ff4000 0%, #ff6633 100%);
+
+  /* Navy — deep blue */
+  --navy: #0a2e5b;
+  --navy-light: #1a4a80;
+  --navy-dark: #071f3d;
+
+  /* Surfaces — clean light */
+  --white: #ffffff;
+  --bg: #f7f7f9;
+  --black: #f7f7f9;
+  --black-light: #f0f0f4;
+  --black-card: #ffffff;
+  --glass: rgba(10, 46, 91, 0.04);
+  --glass-border: rgba(10, 46, 91, 0.08);
+  --glass-hover: rgba(10, 46, 91, 0.07);
+
+  /* Grays — warm navy scale */
+  --gray-900: #0a2e5b;
+  --gray-800: #1a3a63;
+  --gray-700: #2d4a72;
+  --gray-600: #4a6485;
+  --gray-500: #6b8099;
+  --gray-400: #8c9db3;
+  --gray-300: #b0bfcf;
+  --gray-200: #d0d8e3;
+  --gray-100: #e8ecf1;
+  --gray-50: #f2f4f7;
+
+  /* Semantic */
+  --text: #0a2e5b;
+  --text-secondary: #6b8099;
+  --danger: #e53935;
+  --warning: #f59e0b;
+
+  /* Radius — softer, more modern */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 30px;
+  --radius-full: 999px;
+
+  /* Shadows — soft light */
+  --shadow-sm: 0 2px 8px rgba(10, 46, 91, 0.06);
+  --shadow: 0 8px 32px rgba(10, 46, 91, 0.08);
+  --shadow-lg: 0 16px 48px rgba(10, 46, 91, 0.10);
+  --shadow-green: 0 8px 32px rgba(255, 64, 0, 0.18);
+  --shadow-green-strong: 0 12px 40px rgba(255, 64, 0, 0.30);
+  --shadow-primary: 0 8px 32px rgba(255, 64, 0, 0.18);
+  --shadow-primary-strong: 0 12px 40px rgba(255, 64, 0, 0.30);
+  --shadow-inner: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+}
+
+/* ===== Paint splash — organic blobs ===== */
+.paint-splash {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.paint-splash--green {
+  background: radial-gradient(circle, var(--primary-light) 0%, var(--primary) 60%, transparent 100%);
+}
+
+.paint-splash--gray {
+  background: radial-gradient(circle, var(--gray-200) 0%, var(--gray-300) 100%);
+}
+
+.paint-splash--white {
+  background: radial-gradient(circle, var(--navy-light) 0%, transparent 70%);
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* ===== Icon helper ===== */
+.mi {
+  font-family: 'Material Icons Round';
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Screen Layout ===== */
+.screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 0 20px 110px;
+  position: relative;
+  overflow: hidden;
+}
+
+.screen-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0 12px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(to bottom, var(--bg) 60%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.screen-title {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+}
+
+/* ===== Buttons — modern pill shape ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: -0.01em;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.btn-primary {
+  background: var(--primary-gradient);
+  color: var(--white);
+  box-shadow: var(--shadow-primary);
+}
+
+.btn-primary:active {
+  transform: scale(0.96);
+  box-shadow: var(--shadow-primary-strong);
+}
+
+.btn-outline {
+  background: var(--white);
+  color: var(--navy);
+  border: 1.5px solid var(--gray-200);
+}
+
+.btn-outline:active {
+  background: var(--gray-50);
+  transform: scale(0.97);
+}
+
+.btn-sm {
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ===== Cards — clean elevated ===== */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  border: 1.5px solid var(--gray-100);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s var(--ease-out);
+}
+
+.card:active {
+  background: var(--gray-50);
+}
+
+.card-glow {
+  border-color: rgba(255, 64, 0, 0.15);
+  box-shadow: var(--shadow-sm), 0 0 0 1px rgba(255, 64, 0, 0.06);
+}
+
+/* ===== Badges ===== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-green {
+  background: rgba(255, 64, 0, 0.08);
+  color: var(--primary);
+  border: 1px solid rgba(255, 64, 0, 0.12);
+}
+
+.badge-gray {
+  background: var(--gray-50);
+  color: var(--gray-500);
+  border: 1px solid var(--gray-200);
+}
+
+/* ===== Chips ===== */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--white);
+  color: var(--gray-500);
+  border: 1.5px solid var(--gray-200);
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+  letter-spacing: -0.01em;
+}
+
+.chip.active {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+  box-shadow: 0 4px 16px rgba(255, 64, 0, 0.2);
+}
+
+/* ===== Avatar ===== */
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gray-50);
+  border: 1.5px solid var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+/* ===== Section labels ===== */
+.section-label {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--gray-400);
+  margin-bottom: 14px;
+}
+
+/* ===== Inputs — refined ===== */
+.input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--gray-200);
+  background: var(--white);
+  color: var(--navy);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+  transition: all 0.3s var(--ease-out);
+}
+
+.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255, 64, 0, 0.08);
+}
+
+.input::placeholder {
+  color: var(--gray-400);
+  font-weight: 500;
+}
+
+/* ===== Status bar spacer ===== */
+.status-bar {
+  height: env(safe-area-inset-top, 0px);
+}
+
+/* ===== Notification dot — pulsing ===== */
+.notif-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  box-shadow: 0 0 8px var(--primary);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.2); }
+}
+
+/* ===== Utility: display title (biggest headings) ===== */
+.display-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
