@@ -15,10 +15,10 @@ const clientTabs = [
 
 const adminTabs = [
   { name: 'admin', icon: 'dashboard', label: 'Board' },
-  { name: 'calendar', icon: 'calendar_month', label: 'Planning' },
-  { name: 'messages', icon: 'chat_bubble', label: 'Messages' },
-  { name: 'events', icon: 'local_activity', label: 'Events' },
-  { name: 'profile', icon: 'settings', label: 'Config' },
+  { name: 'admin-sessions', icon: 'fitness_center', label: 'Seances' },
+  { name: 'admin-reservations', icon: 'event_available', label: 'Reserv.' },
+  { name: 'admin-events', icon: 'local_activity', label: 'Events' },
+  { name: 'admin-settings', icon: 'settings', label: 'Config' },
 ]
 
 const go = (name) => router.push({ name })
@@ -31,7 +31,7 @@ const go = (name) => router.push({ name })
       <button
         v-for="tab in (admin ? adminTabs : clientTabs)"
         :key="tab.name"
-        :class="['nav-item', { active: route.name === tab.name }]"
+        :class="['nav-item', { active: route.name === tab.name || (tab.name === 'admin' && route.name === 'admin') }]"
         @click="go(tab.name)"
       >
         <div class="nav-icon-wrap">

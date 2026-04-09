@@ -26,12 +26,12 @@ const recentClients = [
 ]
 
 const adminMenu = [
-  { icon: 'people', label: 'Gestion Clients', count: '67' },
-  { icon: 'local_offer', label: 'Prestations & Tarifs', count: '9' },
-  { icon: 'payments', label: 'Suivi Paiements', count: '' },
-  { icon: 'calendar_month', label: 'Planning Complet', count: '' },
-  { icon: 'local_activity', label: 'Evenements', count: '4' },
-  { icon: 'campaign', label: 'Notifications Push', count: '' },
+  { icon: 'fitness_center', label: 'Gestion Seances', count: '8', route: '/admin/sessions' },
+  { icon: 'event_available', label: 'Reservations', count: '24', route: '/admin/reservations' },
+  { icon: 'local_activity', label: 'Evenements', count: '4', route: '/admin/events' },
+  { icon: 'people', label: 'Gestion Clients', count: '67', route: '' },
+  { icon: 'payments', label: 'Suivi Paiements', count: '', route: '' },
+  { icon: 'settings', label: 'Configuration', count: '', route: '/admin/settings' },
 ]
 </script>
 
@@ -118,7 +118,7 @@ const adminMenu = [
     <div class="section">
       <span class="section-label">Administration</span>
       <div class="admin-menu">
-        <div v-for="m in adminMenu" :key="m.label" class="admin-menu-item card">
+        <div v-for="m in adminMenu" :key="m.label" class="admin-menu-item card" @click="m.route && router.push(m.route)">
           <div class="admin-menu-icon-wrap">
             <span class="mi" style="font-size:22px;color:var(--primary)">{{ m.icon }}</span>
           </div>

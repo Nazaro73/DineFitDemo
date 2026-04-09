@@ -4,8 +4,8 @@ import BottomNav from './components/BottomNav.vue'
 import { computed } from 'vue'
 
 const route = useRoute()
-const hideNav = computed(() => ['splash', 'login'].includes(route.name))
-const isAdmin = computed(() => route.name === 'admin')
+const hideNav = computed(() => ['splash', 'login', 'admin-session-create', 'admin-event-create'].includes(route.name))
+const isAdmin = computed(() => route.name?.startsWith('admin'))
 </script>
 
 <template>
